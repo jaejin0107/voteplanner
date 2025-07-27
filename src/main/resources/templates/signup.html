@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" th:href="@{/css/signup.css}" />
+</head>
+<body>
+<div class="signup-container">
+    <h2>회원가입</h2>
+    <form th:action="@{/signup}" method="post" th:object="${signupForm}">
+        <input type="text" th:field="*{name}" placeholder="이름을 입력해주세요" required />
+
+        <!-- 아이디 입력 필드 추가 -->
+        <input type="text"
+               th:field="*{username}"
+               placeholder="아이디 (영문+숫자 4~16자)"
+               pattern="^[a-zA-Z0-9]{4,16}$"
+               title="아이디는 4~16자의 영문, 숫자만 사용 가능합니다."
+               required />
+
+        <input type="email" th:field="*{email}" placeholder="이메일을 입력해주세요" required />
+
+        <input type="password"
+               th:field="*{password}"
+               placeholder="비밀번호 (영문+숫자 8~16자)"
+               pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$"
+               title="비밀번호는 영문+숫자 조합 8~16자여야 합니다."
+               required />
+
+        <input type="password" th:field="*{passwordConfirm}" placeholder="비밀번호 확인" required />
+
+        <div class="checkbox-group">
+            <label>
+                <input type="checkbox" th:field="*{termsAgree}" required />
+                [필수] 만 14세 이상입니다.
+            </label>
+            <label>
+                <input type="checkbox" required />
+                [필수] 서비스 이용 약관
+                <a href="javascript:void(0);" onclick="openModal('termsModal')">보기</a>
+            </label>
+            <label>
+                <input type="checkbox" required />
+                [필수] 개인정보 수집/이용동의
+                <a href="javascript:void(0);" onclick="openModal('privacyModal')">보기</a>
+            </label>
+        </div>
+
+        <button type="submit" class="signup-btn">SIGN UP</button>
+    </form>
+
+    <a href="/oauth2/authorization/kakao" class="kakao-login">카카오 계정으로 가입</a>
+
+    <div class="login-link">
+        계정이 이미 있으신가요? <a th:href="@{/login}">로그인</a>
+    </div>
+</div>
+
+<!-- 모달: 약관 -->
+<div id="termsModal" class="modal-overlay">
+    <div class="modal-content">
+        <h3>서비스 이용 약관</h3>
+        <div class="modal-body">
+            <p>제1조 목적 …</p>
+            <p>제2조 정의 …</p>
+        </div>
+        <button onclick="closeModal('termsModal')">닫기</button>
+    </div>
+</div>
+
+<!-- 모달: 개인정보 -->
+<div id="privacyModal" class="modal-overlay">
+    <div class="modal-content">
+        <h3>개인정보 수집 및 이용 동의</h3>
+        <div class="modal-body">
+            <p>1. 수집 항목: 이름, 아이디, 이메일 등</p>
+            <p>2. 수집 목적: 회원가입 및 서비스 제공</p>
+            <p>3. 보유 기간: 탈퇴 시까지</p>
+        </div>
+        <button onclick="closeModal('privacyModal')">닫기</button>
+    </div>
+</div>
+
+<script>
+    function openModal(id) {
+        document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+</script>
+</body>
+</html>

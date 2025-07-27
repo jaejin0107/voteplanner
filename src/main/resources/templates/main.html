@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>메인화면</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .top-button {
+            margin-bottom: 20px;
+        }
+
+        .bottom-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .main-btn {
+            background-color: #202f53;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="/images/default-profile.png" alt="기본 프로필 이미지" class="profile-img" />
+    <h2 th:text="${user.name} + '님, 환영합니다!'">사용자님, 환영합니다!</h2>
+
+    <div class="top-button">
+        <button class="main-btn" onclick="location.href='/vote/new'">투표 만들기</button>
+    </div>
+
+    <div class="bottom-buttons">
+        <button class="main-btn" onclick="location.href='/main'">메인 화면</button>
+        <button class="main-btn" onclick="location.href='/vote/ongoing'">진행중인 투표</button>
+        <button class="main-btn" onclick="location.href='/vote/completed'">완료된 투표</button>
+    </div>
+</div>
+
+
+</body>
+</html>
