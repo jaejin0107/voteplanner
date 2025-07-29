@@ -46,7 +46,7 @@ body {
 .signup-container h2 {
     text-align: center;
     font-family: 'BMHANNAPro';
-    font-size: 28px;
+    font-size: 26px;
     color: #263775;
     margin-bottom: 10px;
     letter-spacing: 3px;
@@ -72,7 +72,7 @@ body {
     /* border: 1px solid #e0e0e0; */
     border: none;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 13px;
     outline: none;
     transition: border-color 0.2s;
     background-color: #fafafa;
@@ -95,7 +95,7 @@ body {
     padding: 10px;
     border: none;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 13px;
     outline: none;
     transition: border-color 0.2s;
     background-color: #fafafa;
@@ -249,5 +249,20 @@ body {
     line-height: 1.6;
 }
 
+/* 피드백 메세지 */
+.feedback {
+    font-size: 10px;
+    text-align: left;
+    margin-left: 13%;
+    margin-top:1%;
+}
 
+/* 중복된 아이디 (오류) */
+.feedback.error {
+    color: red;
+}
 
+/* 사용 가능한 아이디 (성공) */
+.feedback.success {
+    color: #263775;
+}

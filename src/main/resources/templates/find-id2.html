@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기</title>
+    <!-- CSS 불러오기 -->
+    <link rel="stylesheet" th:href="@{/css/find-id2.css}">
+</head>
+<body>
+    <!-- 페이지 전체 컨테이너 -->
+    <div class="container">
+        <!-- 뒤로가기 버튼 -->
+        <div class="back-box">
+            <a th:href="@{/login}" class="btn-back">
+                <img th:src="@{mages/back.png}">
+            </a>
+        </div>
+        <div class="clear"></div>
+        <!-- 제목 -->
+        <h2>아이디 찾기</h2>
+        <div class="find-box">
+            <h6>회원님의 아이디는 아래와 같습니다.</h6>
+            <!--아이디 불러오기 예시-->
+            <p>00000000000</p>
+        </div>
+
+        <!-- 확인 버튼 -->
+        <a th:href="@{/login}">
+            <button type="submit" class="verify-btn">확인</button>
+        </a>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 배민 한나체 */
+@font-face {
+font-family: 'BMHANNAPro';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+
+.clear {
+    clear: both;
+}
+
+/* body 스타일 */
+body {
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 컨테이너 */
+.container {
+    background: #ffffff;
+    width: 335px;
+    height: 726px;
+    text-align: center;
+    position: relative;
+}
+
+/* 뒤로가기 버튼 */
+.btn-back {
+    float: left;
+    margin-top: 15%;
+    margin-left: 10%;
+}
+
+/* 제목 스타일 */
+.container h2 {
+    text-align: center;
+    font-family: 'BMHANNAPro';
+    font-size: 26px;
+    color: #263775;
+    margin-bottom: 10%;
+    letter-spacing: 3px;
+}
+
+/* 입력 그룹 공통 */
+.input-group {
+    margin-top: 5%;
+}
+
+/* 입력 + 버튼 레이아웃 */
+.input-group.with-button {
+    display: flex;
+    align-items: center;
+}
+
+/* 텍스트/이메일/코드 입력 필드 */
+.input-group input {
+    width: 60%;
+    margin-left: 10%;
+    margin-right: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fafafa;
+}
+
+/* 입력 옆 버튼 마진 */
+.input-group.with-button input {
+    margin-right: 5px;
+}
+
+/* 공통 버튼 스타일 */
+.btn {
+    width: 18.5%;
+    height: 35px;
+    background-color: #263775;
+    color: #fff;
+    padding: 3px 0;
+    font-size: 9px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* 주요 액션 버튼 (남색) */
+.btn-primary {
+    background-color: #263775;
+    color: #fff;
+}
+
+/* 비활성화 스타일 */
+.btn:disabled {
+    opacity: 0.6;
+    /* cursor: not-allowed; */
+}
+
+/* 다음 버튼 (풀-너비) */
+.next-btn {
+    width: 80%;
+    height: 40px;
+    font-family: 'BMHANNAPro';
+    font-size: 16px;
+    margin-top: 32px;
+    position: absolute;              /* 절대 위치 */
+    bottom: 10%;                     /* 컨테이너 바닥에서 10% 위에 */
+    transform: translateX(-50%);     /* 가운데 정렬 */
+    left: 50%;                /* 컨테이너 가로의 50% 지점 */
+}
+
+/* 에러메세지 */
+/* .error-message {
+    color: red;
+    font-size: 10px;
+    text-align: left;
+    margin-left: 13%;
+    margin-top:1%;
+} */
+
+/* 에러메세지 */
+.message {
+    font-size: 10px;
+    text-align: left;
+    margin-left: 13%;
+    margin-top:1%;
+}
+.message.errer {
+    color: red;
+}
+.message.success {
+    color: #263775;
+}
+.verify-message.errer {
+    color: red;
+}
+.verify-message.verify-success {
+    color: #64db24;
+}
