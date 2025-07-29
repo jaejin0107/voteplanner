@@ -1,89 +1,207 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 배민 한나체 */
+@font-face {
+font-family: 'BMHANNAPro';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+
+.clear {
+    clear: both;
+}
+
+/* body 스타일 */
 body {
+    background-color: #f9f9f9;
     font-family: sans-serif;
-    background-color: #fbeff1;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
+    height: 100vh;
 }
 
+/* 회원가입 컨테이너 */
 .signup-container {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
+    background: #ffffff;
+    width: 335px;
+    height: 726px;
     text-align: center;
-    color: #2b2c5f;
-    font-weight: bold;
-    margin-bottom: 30px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+/* 뒤로가기 버튼 */
+.btn-back {
+    float: left;
+    margin-top: 15%;
+    margin-left: 10%;
+}
+
+/* 제목 */
+.signup-container h2 {
+    text-align: center;
+    font-family: 'BMHANNAPro';
+    font-size: 28px;
+    color: #263775;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+/* 입력 그룹 */
+ .input-group {
+    text-align: left;
     margin-bottom: 15px;
 }
-
-.checkbox-group {
-    margin-bottom: 20px;
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 2px;
+    margin-left: 10%
+}
+.input-group input {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10px;
+    /* border: 1px solid #e0e0e0; */
+    border: none;
+    border-radius: 8px;
     font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fafafa;
+}
+
+ .input-group2 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+.input-group2 label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 2px;
+    margin-left: 10%
+}
+.input-group2 input {
+    width: 65%;
+    margin-left: 10%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fafafa;
+    float: left;
+}
+
+/* 중복 확인 버튼 */
+.check-btn {
+  width: 12%;
+  margin-left: 3%;           /* input 테두리와 겹치도록 */
+  background-color: #263775;
+  color: #fff;
+  padding: 3px 0;
+  font-size: 11px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.check-btn:hover {
+  background-color: #23254a;
+}
+
+/* 체크박스 */
+.checkbox-group {
+    margin-bottom: 15px;
+    font-size: 11px;
+    margin-left: 10%;
 }
 
 .checkbox-group label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: normal;
+    text-align: left;
+    position: relative;
+}
+.checkbox-group label a {
+    color: #949494;
+    text-decoration: none;
+    float:right;
+    margin-right: 10%;
+    transition: color 0.2s;
+}
+.checkbox-group a:hover {
+    color: #263775;
 }
 
+/* 가입하기 버튼*/
 .signup-btn {
-    width: 100%;
-    background-color: #2b2c5f;
-    color: white;
-    padding: 14px;
+    width: 80%;
+    height: 40px;
+    margin: 0 10%;
+    background-color: #263775;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'BMHANNAPro';
     border: none;
     border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
     cursor: pointer;
-    margin-bottom: 20px;
+    transition: background-color 0.2s;
+    letter-spacing: 3px;
 }
 
-.kakao-login {
-    width: 100%;
-    background-color: #fee500;
-    color: #3c1e1e;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: bold;
+.signup-btn:hover {
+    background-color: #23254a;
+}
+
+/* ——— 구분선 (실선) ——— */
+.divider-line {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    width: 80%;
+    margin: 10px 10%;      /* 위아래 여백 조절 */
+}
+
+/* ——— 구분 텍스트 ——— */
+.divider-text {
+    font-size: 12px;
+    color: #aaa;
     text-align: center;
-    display: block;
-    text-decoration: none;
-    margin-top: 10px;
+    margin-bottom: 10px; /* 카카오 버튼과의 간격 */
+}
+
+/* 카카오 로그인 버튼 */
+.btn-kakao {
+    display: inline-block;
+}
+.btn-kakao img {
+    width: 40px;
+    height: 40px;
 }
 
 .login-link {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
+    font-size:12px;
+    color: #949494;
 }
 
 .login-link a {
-    color: #2b2c5f;
-    text-decoration: underline;
-    font-weight: bold;
+    color: #263775;
+    text-decoration: none;
 }
+ 
 
-/* 모달 스타일 */
+/* 체크박스 모달 */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -99,16 +217,37 @@ input[type="password"] {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
+    /* width: 90%;
     max-width: 600px;
+     */
     max-height: 80vh;
     overflow-y: auto;
+    width: 310px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     text-align: left;
 }
+.modal-content h3 {
+    text-align: center;
+    font-family: "BMHANNAPro";
+    font-size: 19px;
+    color:#263775;
+}
+
+.modal-content button {
+    float: right;
+    margin-right: 10%;
+}
 
 .modal-body {
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
     margin-top: 10px;
+    margin: 5% 5%;
+    padding: 3% 3%;
     font-size: 14px;
     line-height: 1.6;
 }
+
+
+

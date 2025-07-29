@@ -19,7 +19,6 @@ import java.util.List;
 public class MainController {
 
     private final VoteService voteService;
-    private final UserService userService;
 
     @GetMapping
     public ResponseEntity<MainPageResponse> getMainPage(@AuthenticationPrincipal LoginUserDetails loginUser) {

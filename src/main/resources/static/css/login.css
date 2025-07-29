@@ -1,0 +1,131 @@
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 배민 한나체 */
+@font-face {
+font-family: 'BMHANNAPro';
+src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+
+/* body 스타일 */
+body {
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+    /* 'Apple SD Gothic Neo',  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 로그인 컨테이너 */
+.login-container {
+    background: #ffffff;
+    width: 335px;
+    height: 726px;
+    text-align: center;
+}
+
+/* 제목 */
+.login-container h2 {
+    font-size: 28px;
+    color: #263775;
+    font-family: 'BMHANNAPro';
+    margin: 30px;
+    margin-top: 150px;
+    letter-spacing: 3px;
+}
+
+/* 입력 그룹 */
+.input-group {
+    text-align: left;
+    margin-bottom: 16px;
+}
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+    margin-left: 10%
+}
+.input-group input {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 12px;
+    /* border: 1px solid #e0e0e0; */
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fafafa;
+}
+
+/* 아이디찾기, 비밀번호 찾기, 회원가입*/
+.links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    font-size: 12px;
+    padding: 0 15%;
+}
+.links a {
+    color: #949494;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.links a:hover {
+    color: #263775;
+}
+
+/* 로그인 버튼 */
+.btn-login {
+    width: 50%;
+    height: 40px;
+    margin: 10% 25%;
+    background-color: #263775;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'BMHANNAPro';
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    letter-spacing: 3px;
+}
+.btn-login:hover {
+    background-color: #23254a;
+}
+
+/* ——— 구분선 (실선) ——— */
+.divider-line {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    width: 80%;
+    margin: 24px 10%;      /* 위아래 여백 조절 */
+}
+
+/* ——— 구분 텍스트 ——— */
+.divider-text {
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 16px; /* 카카오 버튼과의 간격 */
+}
+
+/* 카카오 로그인 버튼 */
+.btn-kakao {
+    display: inline-block;
+}
+.btn-kakao img {
+    width: 183px;
+    height: 45px;
+}

@@ -2,34 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="stylesheet" th:href="@{/css/signup.css}" />
 </head>
 <body>
 <div class="signup-container">
+    <!-- 뒤로가기 버튼 -->
+    <div class="back-box">
+        <a th:href="@{/login}" class="btn-back">
+            <img th:src="@{/images/back.png}">
+        </a>
+    </div>
+    <div class="clear"></div>
     <h2>회원가입</h2>
+    <!-- 입력 칸 -->
     <form th:action="@{/signup}" method="post" th:object="${signupForm}">
-        <input type="text" th:field="*{name}" placeholder="이름을 입력해주세요" required />
-
-        <!-- 아이디 입력 필드 추가 -->
-        <input type="text"
-               th:field="*{username}"
-               placeholder="아이디 (영문+숫자 4~16자)"
-               pattern="^[a-zA-Z0-9]{4,16}$"
-               title="아이디는 4~16자의 영문, 숫자만 사용 가능합니다."
-               required />
-
-        <input type="email" th:field="*{email}" placeholder="이메일을 입력해주세요" required />
-
-        <input type="password"
-               th:field="*{password}"
-               placeholder="비밀번호 (영문+숫자 8~16자)"
-               pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$"
-               title="비밀번호는 영문+숫자 조합 8~16자여야 합니다."
-               required />
-
-        <input type="password" th:field="*{passwordConfirm}" placeholder="비밀번호 확인" required />
-
+        <div class="input-group">
+            <label for="name">이름</label>
+            <input type="text" th:field="*{name}" placeholder="이름을 입력해주세요." required />
+        </div>
+        <div class="input-group">
+            <label for="email">이메일</label>
+            <input type="email" th:field="*{email}" placeholder="이메일을 입력해주세요." required />
+        </div>
+        <div class="input-group2">
+            <label for="username">아이디</label>
+            <input type="text"  th:field="*{username}" placeholder="아이디를 입력해주세요." 
+                                pattern="^[a-zA-Z0-9]{4,16}$"
+                                title="아이디는 4~16자의 영문, 숫자만 사용 가능합니다."
+                                required />
+            <!-- 중복 확인 버튼: 클릭 시 자바스크립트로 아이디 중복 확인 -->
+            <button type="button" class="check-btn" id="checkBtn">
+                중복<br>확인
+            </button>
+        </div>
+        <div class="input-group">
+            <label for="password">비밀번호</label>
+            <input type="password"  th:field="*{password}" 
+                                    placeholder="비밀번호를 입력해주세요. (영문, 숫자 8~16자)" 
+                                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$" 
+                                    title="비밀번호는 영문, 숫자 조합 8~16자여야 합니다."
+                                    required />
+        </div>
+        <div class="input-group">
+            <label for="password">비밀번호 확인</label>
+            <input type="password" th:field="*{password}" placeholder="비밀번호를 다시 입력해주세요." required />
+        </div>
+        
+        <!-- 체크박스 -->
         <div class="checkbox-group">
             <label>
                 <input type="checkbox" th:field="*{termsAgree}" required />
@@ -42,54 +63,109 @@
             </label>
             <label>
                 <input type="checkbox" required />
-                [필수] 개인정보 수집/이용동의
+                [필수] 개인정보 수집 및 이용동의
                 <a href="javascript:void(0);" onclick="openModal('privacyModal')">보기</a>
             </label>
         </div>
-
-        <button type="submit" class="signup-btn">SIGN UP</button>
+        <button type="submit" class="signup-btn">가입하기</button>
     </form>
 
-    <a href="/oauth2/authorization/kakao" class="kakao-login">카카오 계정으로 가입</a>
+    <!-- 다른 방법으로 회원가입 -->
+    <hr class="divider-line" />
+    <p class="divider-text">다른 방법으로 회원가입</p>
+    <a th:href="@{/oauth2/authorization/kakao}" class="btn-kakao">
+        <img th:src="@{/images/kakaotalk.png}" alt="카카오 로그인" />
+    </a>
 
     <div class="login-link">
         계정이 이미 있으신가요? <a th:href="@{/login}">로그인</a>
     </div>
 </div>
 
-<!-- 모달: 약관 -->
+<!-- 체크박스 내용 모달 -->
 <div id="termsModal" class="modal-overlay">
     <div class="modal-content">
-        <h3>서비스 이용 약관</h3>
+        <h3>서비스 이용 약관 (필수)</h3>
         <div class="modal-body">
             <p>제1조 목적 …</p>
             <p>제2조 정의 …</p>
         </div>
         <button onclick="closeModal('termsModal')">닫기</button>
+        <div class="clear"></div>
     </div>
 </div>
 
-<!-- 모달: 개인정보 -->
 <div id="privacyModal" class="modal-overlay">
     <div class="modal-content">
-        <h3>개인정보 수집 및 이용 동의</h3>
+        <h3>개인정보 수집 및 이용 동의 (필수)</h3>
         <div class="modal-body">
             <p>1. 수집 항목: 이름, 아이디, 이메일 등</p>
             <p>2. 수집 목적: 회원가입 및 서비스 제공</p>
             <p>3. 보유 기간: 탈퇴 시까지</p>
         </div>
         <button onclick="closeModal('privacyModal')">닫기</button>
+        <div class="clear"></div>
     </div>
 </div>
 
 <script>
+    // 모달 열기/닫기 함수
     function openModal(id) {
         document.getElementById(id).style.display = 'flex';
     }
-
     function closeModal(id) {
         document.getElementById(id).style.display = 'none';
     }
+
+    // DM에서 어떻게 가져오는지 몰라서 일단 이렇게 해놨어욥..
+    // 임시 "데이터베이스": 기존에 등록된 아이디 목록
+    const existingUsernames = ['user1', 'testuser', 'abc123', 'member'];
+    let isUsernameChecked = false;
+
+    //중복 확인 버튼 클릭
+    document.getElementById('checkBtn').addEventListener('click', function() {
+        const usernameInput = document.getElementById('username').value;
+        
+        //아이디가 비어있을 경우
+        if (!usernameInput) {
+            alert('아이디를 입력해주세요.');
+            return;
+        }
+        //데이터베이스에 아이디 존재 확인
+        if (existingUsernames.includes(usernameInput)) {
+            alert('중복된 아이디 입니다.'); // 중복된 경우
+            isUsernameChecked = false;
+        } else {
+            alert('사용할 수 있는 아이디 입니다.'); // 사용 가능한 경우
+            isUsernameChecked = true;
+        }
+    });
+
+    //가입하기 버튼 클릭
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault(); //폼의 기본 제출 동작 방지
+
+        //비밀번호, 비밀번호 확인
+        const pwInputs = document.querySelectorAll('input[type=password]');
+        const password = pwInputs[0].value;
+        const passwordConfirm = pwInputs[1].value;
+
+        //중복확인이 완료되지 않은 경우
+        if (!isUsernameChecked) {
+            alert('아이디 중복확인이 필요합니다.');
+            return;
+        }
+        //비밀번호확인이 완료되지 않은 경우
+        else if (password !== passwordConfirm) {
+            alert('비밀번호 확인을 해주세요.');
+            return;
+        }
+        //전부 완료된 경우
+        else {
+            alert('회원가입이 성공적으로 완료되었습니다.');
+            window.location.href = '@{/login}'; //로그인 페이지로 이동
+        }
+    })
 </script>
 </body>
 </html>
